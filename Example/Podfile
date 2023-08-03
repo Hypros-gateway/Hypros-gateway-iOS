@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'MKGatewayABEight_Example' do
+  pod 'MKGatewayABEight', :path => '../'
+
+  target 'MKGatewayABEight_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
