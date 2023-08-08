@@ -1,0 +1,903 @@
+{
+  "name": "MKGatewayABEight",
+  "version": "0.0.1",
+  "summary": "A short description of MKGatewayABEight.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lovexiaoxia/MKGatewayABEight",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lovexiaoxia": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/lovexiaoxia/MKGatewayABEight.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "resource_bundles": {
+    "MKGatewayABEight": [
+      "MKGatewayABEight/Assets/*.png"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Expand",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKGatewayABEight/DeviceModel": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "DatabaseManager",
+          "source_files": "MKGatewayABEight/Classes/Expand/DatabaseManager/**",
+          "dependencies": {
+            "FMDB": [
+
+            ]
+          }
+        },
+        {
+          "name": "BaseController",
+          "source_files": "MKGatewayABEight/Classes/Expand/BaseController/**"
+        }
+      ]
+    },
+    {
+      "name": "DeviceModel",
+      "source_files": "MKGatewayABEight/Classes/DeviceModel/**",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKGatewayABEight/SDK/MQTT": [
+
+        ]
+      }
+    },
+    {
+      "name": "CTMediator",
+      "source_files": "MKGatewayABEight/Classes/CTMediator/**",
+      "dependencies": {
+        "CTMediator": [
+
+        ],
+        "MKGatewayABEight/DeviceModel": [
+
+        ]
+      }
+    },
+    {
+      "name": "SDK",
+      "dependencies": {
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKBaseMQTTModule": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "BLE",
+          "source_files": "MKGatewayABEight/Classes/SDK/BLE/**",
+          "dependencies": {
+            "MKBaseBleModule": [
+
+            ]
+          }
+        },
+        {
+          "name": "MQTT",
+          "source_files": "MKGatewayABEight/Classes/SDK/MQTT/**"
+        }
+      ]
+    },
+    {
+      "name": "Modules",
+      "dependencies": {
+        "MKGatewayABEight/DeviceModel": [
+
+        ],
+        "MKGatewayABEight/Expand": [
+
+        ],
+        "MKGatewayABEight/SDK": [
+
+        ],
+        "MKGatewayABEight/CTMediator": [
+
+        ],
+        "MKBaseModuleLibrary": [
+
+        ],
+        "MKCustomUIModule": [
+
+        ],
+        "MLInputDodger": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "FunctionModule",
+          "subspecs": [
+            {
+              "name": "SDK",
+              "subspecs": [
+                {
+                  "name": "MQTT",
+                  "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/SDK/MQTT/**"
+                }
+              ]
+            },
+            {
+              "name": "Target",
+              "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Target/**",
+              "dependencies": {
+                "MKGatewayABEight/Modules/FunctionModule/Functions": [
+
+                ]
+              }
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MKGatewayABEight/Modules/CommonModule": [
+
+                ],
+                "MKGatewayABEight/Modules/FunctionModule/SDK": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "AdvBeaconPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/AdvBeaconPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/AdvBeaconPage/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/AdvBeaconPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/AdvBeaconPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/AdvBeaconPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceDataPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/DeviceDataPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/SettingPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/UploadOptionPage/Controller": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "DeviceInfoPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/DeviceInfoPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/DeviceInfoPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/DeviceInfoPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DuplicateDataFilterPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/DuplicateDataFilterPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/DuplicateDataFilterPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/DuplicateDataFilterPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ModifyMQTTServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ModifyMQTTServerPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/ModifyMQTTServerPage/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/ModifyMQTTServerPage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ModifyMQTTServerPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ModifyMQTTServerPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NTPServerPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/NTPServerPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/NTPServerPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/NTPServerPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "OTAPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/OTAPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/OTAPage/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/OTAPage/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/SlaveFileSelectPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/OTAPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/OTAPage/Model/**",
+                      "dependencies": {
+                        "iOSDFULibrary": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForDevice",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ServerForDevice/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/ServerForDevice/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/ServerForDevice/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ServerForDevice/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/ServerForDevice/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/SettingPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/SettingPage/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/AdvBeaconPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/DeviceInfoPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/SystemTimePage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/ModifyMQTTServerPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/OTAPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/SettingPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SlaveFileSelectPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/SlaveFileSelectPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "SystemTimePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/SystemTimePage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/SystemTimePage/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/NTPServerPage/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/SystemTimePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadDataOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/UploadDataOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/UploadDataOptionPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/UploadDataOptionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "UploadOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/UploadOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/UploadOptionPage/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/UploadOptionPage/Model": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/UploadDataOptionPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/DuplicateDataFilterPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/UploadOptionPage/View/**"
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/UploadOptionPage/Model/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "FilterPages",
+                  "subspecs": [
+                    {
+                      "name": "FilterByAdvNamePage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByAdvNamePage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByAdvNamePage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByAdvNamePage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByBeaconPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Model": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Header",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Header/**"
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Model/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Header": [
+
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByMacPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByMacPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByMacPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByMacPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByOtherPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByOtherPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByOtherPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByOtherPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByRawDataPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByRawDataPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByRawDataPage/Model": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByBeaconPage/Controller": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByUIDPage/Controller": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByURLPage/Controller": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByTLMPage/Controller": [
+
+                            ],
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByOtherPage/Controller": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByRawDataPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByTLMPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByTLMPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByTLMPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByTLMPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByUIDPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByUIDPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByUIDPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByUIDPage/Model/**"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FilterByURLPage",
+                      "subspecs": [
+                        {
+                          "name": "Controller",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByURLPage/Controller/**",
+                          "dependencies": {
+                            "MKGatewayABEight/Modules/FunctionModule/Functions/FilterPages/FilterByURLPage/Model": [
+
+                            ]
+                          }
+                        },
+                        {
+                          "name": "Model",
+                          "source_files": "MKGatewayABEight/Classes/Modules/FunctionModule/Functions/FilterPages/FilterByURLPage/Model/**"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "MainModule",
+          "dependencies": {
+            "MKGatewayABEight/Modules/CommonModule": [
+
+            ]
+          },
+          "subspecs": [
+            {
+              "name": "SDK",
+              "source_files": "MKGatewayABEight/Classes/Modules/MainModule/SDK/**"
+            },
+            {
+              "name": "Functions",
+              "dependencies": {
+                "MKGatewayABEight/Modules/MainModule/SDK": [
+
+                ]
+              },
+              "subspecs": [
+                {
+                  "name": "DeviceListPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/DeviceListPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/MainModule/Functions/DeviceListPage/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/MainModule/Functions/ScanPage/Controller": [
+
+                        ],
+                        "MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP/Controller": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/DeviceListPage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ScanPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ScanPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/MainModule/Functions/ScanPage/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/MainModule/Functions/ScanPage/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ScanPage/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ScanPage/View/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/MainModule/Functions/ScanPage/Model": [
+
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "ServerForAPP",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ServerForAPP/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP/View": [
+
+                        ],
+                        "MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP/Model": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Model",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ServerForAPP/Model/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/MainModule/Functions/ServerForAPP/View/**"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CommonModule",
+          "subspecs": [
+            {
+              "name": "Pages",
+              "subspecs": [
+                {
+                  "name": "ConnectionSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/ConnectionSettingPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/ConnectionSettingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/ConnectionSettingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ConnectSuccessPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/ConnectSuccessPage/Controller/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "DataReportingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/DataReportingPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/DataReportingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/DataReportingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "LEDSettingPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/LEDSettingPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/LEDSettingPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/LEDSettingPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "MQTTSettingForDevicePage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Protocol": [
+
+                        ],
+                        "MKGatewayABEight/Modules/CommonModule/Pages/MQTTSettingForDevicePage/View": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/Protocol/**"
+                    },
+                    {
+                      "name": "View",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/MQTTSettingForDevicePage/View/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "NetworkStatusPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/NetworkStatusPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/NetworkStatusPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/NetworkStatusPage/Protocol/**"
+                    }
+                  ]
+                },
+                {
+                  "name": "ScanTimeoutOptionPage",
+                  "subspecs": [
+                    {
+                      "name": "Controller",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Controller/**",
+                      "dependencies": {
+                        "MKGatewayABEight/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Protocol": [
+
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Protocol",
+                      "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Pages/ScanTimeoutOptionPage/Protocol/**"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Views",
+              "subspecs": [
+                {
+                  "name": "DeviceDataPageView",
+                  "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Views/DeviceDataPageView/**"
+                },
+                {
+                  "name": "FilterBeaconCell",
+                  "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Views/FilterBeaconCell/**"
+                },
+                {
+                  "name": "FilterByRawDataCell",
+                  "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Views/FilterByRawDataCell/**"
+                },
+                {
+                  "name": "FilterEditSectionHeaderView",
+                  "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Views/FilterEditSectionHeaderView/**"
+                },
+                {
+                  "name": "FilterNormalTextFieldCell",
+                  "source_files": "MKGatewayABEight/Classes/Modules/CommonModule/Views/FilterNormalTextFieldCell/**"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

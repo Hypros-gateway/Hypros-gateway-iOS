@@ -1,0 +1,6 @@
+framework module MKGatewayABEight {
+  umbrella header "MKGatewayABEight-umbrella.h"
+
+  export *
+  module * { export * }
+}
