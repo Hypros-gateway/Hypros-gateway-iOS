@@ -190,7 +190,7 @@ static dispatch_once_t onceToken;
         [MKBLEBaseSDKAdopter operationConnectFailedBlock:failedBlock];
         return;
     }
-    if (!MKValidStr(password) || password.length > 8 || ![MKBLEBaseSDKAdopter asciiString:password]) {
+    if (!MKValidStr(password) || password.length < 8 || password.length > 16 || ![MKBLEBaseSDKAdopter asciiString:password]) {
         [self operationFailedBlockWithMsg:@"Password Error" failedBlock:failedBlock];
         return;
     }

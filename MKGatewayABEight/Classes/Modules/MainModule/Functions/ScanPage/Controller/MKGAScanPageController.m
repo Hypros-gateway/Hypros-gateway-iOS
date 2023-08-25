@@ -229,9 +229,9 @@ mk_ga_centralManagerScanDelegate>
     NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
     self.asciiText = localPassword;
     MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr(localPassword)
-                                                                          placeholder:@"The password is 1 ~ 8 characters."
+                                                                          placeholder:@"TThe password should be 8-16 characters."
                                                                         textFieldType:mk_normal
-                                                                            maxLength:8
+                                                                            maxLength:16
                                                                               handler:^(NSString * _Nonnull text) {
         @strongify(self);
         self.asciiText = text;
@@ -247,8 +247,8 @@ mk_ga_centralManagerScanDelegate>
 
 - (void)connectDevice:(MKGAScanPageModel *)deviecModel {
     NSString *password = self.asciiText;
-    if (!ValidStr(password) || password.length > 8) {
-        [self.view showCentralToast:@"The password should be 1 ~ 8 characters."];
+    if (!ValidStr(password) || password.length < 8 || password.length > 16) {
+        [self.view showCentralToast:@"The password should be 8 ~ 16 characters."];
         return;
     }
     [[MKHudManager share] showHUDWithTitle:@"Connecting..." inView:self.view isPenetration:NO];

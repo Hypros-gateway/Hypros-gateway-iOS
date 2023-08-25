@@ -188,7 +188,7 @@ MKTextButtonCellDelegate>
     //更新底部逻辑关系选择
     MKTextButtonCellModel *relationshipModel = self.section2List[0];
     relationshipModel.dataList = [self loadFilterRelationshipList];
-    relationshipModel.dataListIndex = 0;
+    relationshipModel.dataListIndex = [self loadFilterRelationshipIndex];
     
     [self.tableView reloadData];
     
@@ -204,7 +204,7 @@ MKTextButtonCellDelegate>
     //更新底部逻辑关系选择
     MKTextButtonCellModel *relationshipModel = self.section2List[0];
     relationshipModel.dataList = [self loadFilterRelationshipList];
-    relationshipModel.dataListIndex = 0;
+    relationshipModel.dataListIndex = [self loadFilterRelationshipIndex];
     
     [self.tableView reloadData];
 }
@@ -317,7 +317,7 @@ MKTextButtonCellDelegate>
 }
 
 - (NSInteger)loadFilterRelationshipIndex {
-    if (self.section1List.count == 2 && self.dataModel.relationship == 2) {
+    if (self.section1List.count == 2) {
         //@[@"A & B",@"A | B"]
         //当前设备为A | B
         return 1;
@@ -325,12 +325,13 @@ MKTextButtonCellDelegate>
     if (self.section1List.count == 3) {
         //@[@"A & B & C",@"(A & B) | C",@"A | B | C"]
         //
+        if (self.dataModel.relationship == 3) {
+            return 0;
+        }
         if (self.dataModel.relationship == 4) {
             return 1;
         }
-        if (self.dataModel.relationship == 5) {
-            return 2;
-        }
+        return 2;
     }
     return 0;
 }

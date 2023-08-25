@@ -469,6 +469,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKGatewayABEight/MKGatewayABEight-Prefix.pch";
 				INFOPLIST_FILE = "MKGatewayABEight/MKGatewayABEight-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HyprosGW;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
@@ -590,6 +591,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKGatewayABEight/MKGatewayABEight-Prefix.pch";
 				INFOPLIST_FILE = "MKGatewayABEight/MKGatewayABEight-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HyprosGW;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
@@ -614,6 +616,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MKGatewayABEight/MKGatewayABEight-Prefix.pch";
 				INFOPLIST_FILE = "MKGatewayABEight/MKGatewayABEight-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = HyprosGW;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";

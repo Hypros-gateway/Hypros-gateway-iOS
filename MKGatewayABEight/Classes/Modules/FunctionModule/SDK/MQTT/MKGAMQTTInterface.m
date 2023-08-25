@@ -1995,6 +1995,12 @@
         }
         return YES;
     }
+    if (protocol.maxIndex == 0 && protocol.minIndex != 0) {
+        return NO;
+    }
+    if (protocol.minIndex == 0 && protocol.maxIndex != 0) {
+        return NO;
+    }
     if (protocol.minIndex < 0 || protocol.minIndex > 29 || protocol.maxIndex < 0 || protocol.maxIndex > 29) {
         return NO;
     }

@@ -65,7 +65,7 @@ static const NSInteger packDataMaxLen = 150;
         commandString = [NSString stringWithFormat:@"%@%@%@",@"ed0103",lenString,tempString];
     }else {
         //空的
-        commandString = @"ed01030100";
+        commandString = @"ed010300";
     }
     
     [self configDataWithTaskID:mk_ga_taskConfigWIFIPasswordOperation
@@ -230,7 +230,7 @@ static const NSInteger packDataMaxLen = 150;
         commandString = [NSString stringWithFormat:@"%@%@%@",@"ed010e",lenString,tempString];
     }else {
         //空的
-        commandString = @"ed010e0100";
+        commandString = @"ed010e00";
     }
     
     [self configDataWithTaskID:mk_ga_taskConfigNTPServerHostOperation
@@ -293,7 +293,7 @@ static const NSInteger packDataMaxLen = 150;
     }
     if (!MKValidStr(userName)) {
         //空的
-        NSString *commandString = @"ee010101000100";
+        NSString *commandString = @"ee0101010000";
         [self configDataWithTaskID:mk_ga_taskConfigServerUserNameOperation
                               data:commandString
                           sucBlock:sucBlock
@@ -345,7 +345,7 @@ static const NSInteger packDataMaxLen = 150;
     }
     if (!MKValidStr(password)) {
         //空的
-        NSString *commandString = @"ee010201000100";
+        NSString *commandString = @"ee0102010000";
         [self configDataWithTaskID:mk_ga_taskConfigServerPasswordOperation
                               data:commandString
                           sucBlock:sucBlock

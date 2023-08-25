@@ -748,7 +748,7 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
     __block BOOL success = NO;
     [MKGAInterface ga_readTimeZoneWithSucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.timeZone = [returnData[@"result"][@"timeZone"] integerValue] + 12;
+        self.timeZone = [returnData[@"result"][@"timeZone"] integerValue] + 24;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);

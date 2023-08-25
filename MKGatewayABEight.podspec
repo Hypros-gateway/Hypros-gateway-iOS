@@ -388,12 +388,25 @@ TODO: Add long description of the pod here.
         end
         sss.subspec 'Functions' do |ssss|
           
+          ssss.subspec 'AboutPage' do |sssss|
+              sssss.subspec 'Controller' do |ssssss|
+                ssssss.source_files = 'MKGatewayABEight/Classes/Modules/MainModule/Functions/AboutPage/Controller/**'
+                
+                ssssss.dependency 'MKGatewayABEight/Modules/MainModule/Functions/AboutPage/View'
+                
+              end
+              sssss.subspec 'View' do |ssssss|
+                ssssss.source_files = 'MKGatewayABEight/Classes/Modules/MainModule/Functions/AboutPage/View/**'
+              end
+          end
+          
           ssss.subspec 'DeviceListPage' do |sssss|
               sssss.subspec 'Controller' do |ssssss|
                 ssssss.source_files = 'MKGatewayABEight/Classes/Modules/MainModule/Functions/DeviceListPage/Controller/**'
                 
                 ssssss.dependency 'MKGatewayABEight/Modules/MainModule/Functions/DeviceListPage/View'
                 
+                ssssss.dependency 'MKGatewayABEight/Modules/MainModule/Functions/AboutPage/Controller'
                 ssssss.dependency 'MKGatewayABEight/Modules/MainModule/Functions/ScanPage/Controller'
                 ssssss.dependency 'MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP/Controller'
               end

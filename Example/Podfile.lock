@@ -1623,9 +1623,43 @@ PODS:
     - MKGatewayABEight/DeviceModel
     - MKGatewayABEight/Expand
     - MKGatewayABEight/Modules/CommonModule
+    - MKGatewayABEight/Modules/MainModule/Functions/AboutPage (= 0.0.1)
     - MKGatewayABEight/Modules/MainModule/Functions/DeviceListPage (= 0.0.1)
     - MKGatewayABEight/Modules/MainModule/Functions/ScanPage (= 0.0.1)
     - MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP (= 0.0.1)
+    - MKGatewayABEight/Modules/MainModule/SDK
+    - MKGatewayABEight/SDK
+    - MLInputDodger
+  - MKGatewayABEight/Modules/MainModule/Functions/AboutPage (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayABEight/CTMediator
+    - MKGatewayABEight/DeviceModel
+    - MKGatewayABEight/Expand
+    - MKGatewayABEight/Modules/CommonModule
+    - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/Controller (= 0.0.1)
+    - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/View (= 0.0.1)
+    - MKGatewayABEight/Modules/MainModule/SDK
+    - MKGatewayABEight/SDK
+    - MLInputDodger
+  - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayABEight/CTMediator
+    - MKGatewayABEight/DeviceModel
+    - MKGatewayABEight/Expand
+    - MKGatewayABEight/Modules/CommonModule
+    - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/View
+    - MKGatewayABEight/Modules/MainModule/SDK
+    - MKGatewayABEight/SDK
+    - MLInputDodger
+  - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKGatewayABEight/CTMediator
+    - MKGatewayABEight/DeviceModel
+    - MKGatewayABEight/Expand
+    - MKGatewayABEight/Modules/CommonModule
     - MKGatewayABEight/Modules/MainModule/SDK
     - MKGatewayABEight/SDK
     - MLInputDodger
@@ -1648,6 +1682,7 @@ PODS:
     - MKGatewayABEight/DeviceModel
     - MKGatewayABEight/Expand
     - MKGatewayABEight/Modules/CommonModule
+    - MKGatewayABEight/Modules/MainModule/Functions/AboutPage/Controller
     - MKGatewayABEight/Modules/MainModule/Functions/DeviceListPage/View
     - MKGatewayABEight/Modules/MainModule/Functions/ScanPage/Controller
     - MKGatewayABEight/Modules/MainModule/Functions/ServerForAPP/Controller
@@ -1824,7 +1859,7 @@ SPEC CHECKSUMS:
   MKBaseModuleLibrary: 8d0292b517d87552083f9180eeaa4569605707db
   MKBaseMQTTModule: 5434692b017865eede3b2ac6d2b4df52acd65a91
   MKCustomUIModule: 83b76a0ccd1ac855157091b389154bd6a309c414
-  MKGatewayABEight: 031c5029d7936129c3bf21c0d421e340475fe160
+  MKGatewayABEight: 312320190b33c2e83dc3b3704d9d9ea0cfaf6b8e
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196

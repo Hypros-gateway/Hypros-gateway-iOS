@@ -85,8 +85,8 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
 
 - (instancetype)init {
     if (self = [super init]) {
-        _subscribeTopic = defaultSubTopic;
-        _publishTopic = defaultPubTopic;
+//        _subscribeTopic = defaultSubTopic;
+//        _publishTopic = defaultPubTopic;
         _cleanSession = YES;
         _keepAlive = @"60";
         _qos = 0;

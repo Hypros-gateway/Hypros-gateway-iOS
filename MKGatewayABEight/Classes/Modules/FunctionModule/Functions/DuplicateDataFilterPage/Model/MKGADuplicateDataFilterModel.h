@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKGADuplicateDataFilterModel : NSObject
 
-@property (nonatomic, assign)BOOL isOn;
-
 /// 0:None    1:MAC   2:MAC+Data  type  3:MAC+Raw data
 @property (nonatomic, assign)NSInteger rule;
 

@@ -57,7 +57,6 @@
     __block BOOL success = NO;
     [MKGAMQTTInterface ga_readDuplicateDataFilterWithDeviceID:[MKGADeviceModeManager shared].deviceID macAddress:[MKGADeviceModeManager shared].macAddress topic:[MKGADeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
-        self.isOn = ([returnData[@"data"][@"switch"] integerValue] == 1);
         self.rule = [returnData[@"data"][@"rule"] integerValue];
         self.time = [NSString stringWithFormat:@"%@",returnData[@"data"][@"time"]];
         dispatch_semaphore_signal(self.semaphore);

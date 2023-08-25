@@ -96,6 +96,8 @@
 #import "MKGAMQTTTaskAdopter.h"
 #import "MKGAMQTTTaskID.h"
 #import "Target_Gateway_AB_Module.h"
+#import "MKGAAboutController.h"
+#import "MKGAAboutCell.h"
 #import "MKGADeviceListController.h"
 #import "MKGAAddDeviceView.h"
 #import "MKGADeviceListCell.h"

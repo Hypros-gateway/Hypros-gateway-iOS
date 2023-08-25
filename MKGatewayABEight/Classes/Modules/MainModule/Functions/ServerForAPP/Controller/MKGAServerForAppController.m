@@ -42,8 +42,6 @@ MKCAFileSelectControllerDelegate>
 
 @property (nonatomic, strong)NSMutableArray *section0List;
 
-@property (nonatomic, strong)NSMutableArray *section1List;
-
 @property (nonatomic, strong)NSMutableArray *sectionHeaderList;
 
 @property (nonatomic, strong)MKGAServerForAppModel *dataModel;
@@ -125,10 +123,6 @@ MKCAFileSelectControllerDelegate>
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
-        MKTextFieldCellModel *cellModel = self.section1List[indexPath.row];
-        return [cellModel cellHeightWithContentWidth:kViewWidth];
-    }
     return 44.f;
 }
 
@@ -151,21 +145,12 @@ MKCAFileSelectControllerDelegate>
     if (section == 0) {
         return self.section0List.count;
     }
-    if (section == 1) {
-        return self.section1List.count;
-    }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:tableView];
-        cell.dataModel = self.section0List[indexPath.row];
-        cell.delegate = self;
-        return cell;
-    }
     MKTextFieldCell *cell = [MKTextFieldCell initCellWithTableView:tableView];
-    cell.dataModel = self.section1List[indexPath.row];
+    cell.dataModel = self.section0List[indexPath.row];
     cell.delegate = self;
     return cell;
 }
@@ -193,20 +178,6 @@ MKCAFileSelectControllerDelegate>
         //clientID
         self.dataModel.clientID = value;
         MKTextFieldCellModel *cellModel = self.section0List[2];
-        cellModel.textFieldValue = value;
-        return;
-    }
-    if (index == 3) {
-        //Subscribe
-        self.dataModel.subscribeTopic = value;
-        MKTextFieldCellModel *cellModel = self.section1List[0];
-        cellModel.textFieldValue = value;
-        return;
-    }
-    if (index == 4) {
-        //Publish
-        self.dataModel.publishTopic = value;
-        MKTextFieldCellModel *cellModel = self.section1List[1];
         cellModel.textFieldValue = value;
         return;
     }
@@ -388,7 +359,6 @@ MKCAFileSelectControllerDelegate>
 #pragma mark - loadSectionDatas
 - (void)loadSectionDatas {
     [self loadSection0Datas];
-    [self loadSection1Datas];
     
     [self loadSectionHeaderDatas];
     [self loadFooterViewDatas];
@@ -425,37 +395,11 @@ MKCAFileSelectControllerDelegate>
     [self.section0List addObject:cellModel3];
 }
 
-- (void)loadSection1Datas {
-    MKTextFieldCellModel *cellModel1 = [[MKTextFieldCellModel alloc] init];
-    cellModel1.index = 3;
-    cellModel1.msg = @"Subscribe";
-    cellModel1.textPlaceholder = @"0-128 Characters";
-    cellModel1.textFieldType = mk_normal;
-    cellModel1.textFieldValue = self.dataModel.subscribeTopic;
-    cellModel1.maxLength = 128;
-    [self.section1List addObject:cellModel1];
-    
-    MKTextFieldCellModel *cellModel2 = [[MKTextFieldCellModel alloc] init];
-    cellModel2.index = 4;
-    cellModel2.msg = @"Publish";
-    cellModel2.textPlaceholder = @"0-128 Characters";
-    cellModel2.textFieldType = mk_normal;
-    cellModel2.textFieldValue = self.dataModel.publishTopic;
-    cellModel2.maxLength = 128;
-    cellModel2.noteMsg = @"Note: Input your topics to communicate with the device or set the topics to empty.";
-    [self.section1List addObject:cellModel2];
-}
-
 - (void)loadSectionHeaderDatas {
     MKTableSectionLineHeaderModel *section0Model = [[MKTableSectionLineHeaderModel alloc] init];
     section0Model.contentColor = RGBCOLOR(242, 242, 242);
     section0Model.text = @"Broker Setting";
     [self.sectionHeaderList addObject:section0Model];
-    
-    MKTableSectionLineHeaderModel *section0Mode2 = [[MKTableSectionLineHeaderModel alloc] init];
-    section0Mode2.contentColor = RGBCOLOR(242, 242, 242);
-    section0Mode2.text = @"Topics";
-    [self.sectionHeaderList addObject:section0Mode2];
 }
 
 - (void)loadFooterViewDatas {
@@ -522,13 +466,6 @@ MKCAFileSelectControllerDelegate>
         _section0List = [NSMutableArray array];
     }
     return _section0List;
-}
-
-- (NSMutableArray *)section1List {
-    if (!_section1List) {
-        _section1List = [NSMutableArray array];
-    }
-    return _section1List;
 }
 
 - (MKGAServerForAppModel *)dataModel {

@@ -36,6 +36,7 @@
 #import "MKGADeviceListCell.h"
 #import "MKGAEasyShowView.h"
 
+#import "MKGAAboutController.h"
 #import "MKGAServerForAppController.h"
 #import "MKGAScanPageController.h"
 
@@ -91,9 +92,13 @@ MKGADeviceModelDelegate>
 }
 
 #pragma mark - super method
+- (void)leftButtonMethod {
+    MKGAServerForAppController *vc = [[MKGAServerForAppController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)rightButtonMethod {
-    MKGAServerForAppController *vc = [[MKGAServerForAppController alloc] init];
+    MKGAAboutController *vc = [[MKGAAboutController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -190,7 +195,11 @@ MKGADeviceModelDelegate>
         [self.dataList replaceObjectAtIndex:index withObject:deviceModel];
     }else {
         //不存在，则添加到设备列表
-        [self.dataList addObject:deviceModel];
+        if (self.dataList.count > 0) {
+            [self.dataList insertObject:deviceModel atIndex:0];
+        }else {
+            [self.dataList addObject:deviceModel];
+        }
     }
     
     [self loadMainViews];
@@ -274,7 +283,7 @@ MKGADeviceModelDelegate>
 - (void)addButtonPressed {
     if ([[MKGAMMQTTManager shared] needConfigMQTTForApp]) {
         //如果MQTT服务器参数不存在，则去引导用户添加服务器参数，让app连接MQTT服务器
-        [self rightButtonMethod];
+        [self leftButtonMethod];
         return;
     }
     //MQTT服务器参数存在，则添加设备
@@ -328,7 +337,11 @@ MKGADeviceModelDelegate>
     for (NSInteger i = 0; i < deviceList.count; i ++) {
         MKGADeviceModel *deviceModel = deviceList[i];
         deviceModel.delegate = self;
-        [self.dataList addObject:deviceModel];
+        if (i == 0) {
+            [self.dataList addObject:deviceModel];
+        }else {
+            [self.dataList insertObject:deviceModel atIndex:0];
+        }
         [topicList addObject:[deviceModel currentPublishedTopic]];
     }
     [self loadMainViews];
@@ -425,8 +438,8 @@ MKGADeviceModelDelegate>
 #pragma mark - UI
 - (void)loadSubViews {
     self.defaultTitle = @"MKScannerPro";
-    self.leftButton.hidden = YES;
-    [self.rightButton setImage:LOADICON(@"MKGatewayABEight", @"MKGADeviceListController", @"ga_menuIcon.png") forState:UIControlStateNormal];
+    [self.leftButton setImage:LOADICON(@"MKGatewayABEight", @"MKGADeviceListController", @"ga_menuIcon.png") forState:UIControlStateNormal];
+    [self.rightButton setImage:LOADICON(@"MKGatewayABEight", @"MKGADeviceListController", @"ga_scanRightAboutIcon.png") forState:UIControlStateNormal];
     [self.view addSubview:self.footerView];
     [self.footerView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
