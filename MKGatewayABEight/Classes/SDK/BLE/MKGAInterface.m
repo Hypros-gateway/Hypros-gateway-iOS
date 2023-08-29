@@ -171,16 +171,6 @@
                          failureBlock:failedBlock];
 }
 
-+ (void)ga_readTimeZoneWithSucBlock:(void (^)(id returnData))sucBlock
-                        failedBlock:(void (^)(NSError *error))failedBlock {
-    NSString *commandString = @"ed000f00";
-    [centralManager addTaskWithTaskID:mk_ga_taskReadTimeZoneOperation
-                       characteristic:peripheral.ga_custom
-                          commandData:commandString
-                         successBlock:sucBlock
-                         failureBlock:failedBlock];
-}
-
 + (void)ga_readDeviceMacAddressWithSucBlock:(void (^)(id returnData))sucBlock
                                 failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = @"ed001000";
@@ -206,6 +196,16 @@
                           failedBlock:(void (^)(NSError *error))failedBlock {
     NSString *commandString = @"ed001700";
     [centralManager addTaskWithTaskID:mk_ga_taskReadDeviceTypeOperation
+                       characteristic:peripheral.ga_custom
+                          commandData:commandString
+                         successBlock:sucBlock
+                         failureBlock:failedBlock];
+}
+
++ (void)ga_readTimeZoneWithSucBlock:(void (^)(id returnData))sucBlock
+                        failedBlock:(void (^)(NSError *error))failedBlock {
+    NSString *commandString = @"ed001900";
+    [centralManager addTaskWithTaskID:mk_ga_taskReadTimeZoneOperation
                        characteristic:peripheral.ga_custom
                           commandData:commandString
                          successBlock:sucBlock

@@ -522,7 +522,7 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
 
 - (BOOL)configTimeZone {
     __block BOOL success = NO;
-    [MKGAInterface ga_configPTimeZone:(self.timeZone - 24) sucBlock:^{
+    [MKGAInterface ga_configTimeZone:(self.timeZone - 24) sucBlock:^{
         success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {

@@ -246,24 +246,13 @@ static const NSInteger packDataMaxLen = 150;
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
-    NSString *zoneValue = [MKBLEBaseSDKAdopter hexStringFromSignedNumber:timeZone];
-    NSString *commandString = [@"ed010f01" stringByAppendingString:zoneValue];
-    [self configDataWithTaskID:mk_ga_taskConfigTimeZoneOperation
-                          data:commandString
-                      sucBlock:sucBlock
-                   failedBlock:failedBlock];
-}
-
-+ (void)ga_configPTimeZone:(NSInteger)timeZone
-                  sucBlock:(void (^)(void))sucBlock
-               failedBlock:(void (^)(NSError *error))failedBlock {
     if (timeZone < -24 || timeZone > 28) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
     }
     NSString *zoneValue = [MKBLEBaseSDKAdopter hexStringFromSignedNumber:timeZone];
     NSString *commandString = [@"ed011901" stringByAppendingString:zoneValue];
-    [self configDataWithTaskID:mk_ga_taskConfigPTimeZoneOperation
+    [self configDataWithTaskID:mk_ga_taskConfigTimeZoneOperation
                           data:commandString
                       sucBlock:sucBlock
                    failedBlock:failedBlock];

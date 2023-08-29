@@ -215,12 +215,6 @@ NSString *const mk_ga_contentKey = @"mk_ga_contentKey";
             @"host":(MKValidStr(host) ? host : @""),
         };
         operationID = mk_ga_taskReadNTPServerHostOperation;
-    }else if ([cmd isEqualToString:@"0f"]) {
-        //读取时区
-        resultDic = @{
-            @"timeZone":[MKBLEBaseSDKAdopter signedHexTurnString:content],
-        };
-        operationID = mk_ga_taskReadTimeZoneOperation;
     }else if ([cmd isEqualToString:@"10"]) {
         //读取MAC
         NSString *macAddress = [NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",[content substringWithRange:NSMakeRange(0, 2)],[content substringWithRange:NSMakeRange(2, 2)],[content substringWithRange:NSMakeRange(4, 2)],[content substringWithRange:NSMakeRange(6, 2)],[content substringWithRange:NSMakeRange(8, 2)],[content substringWithRange:NSMakeRange(10, 2)]];
@@ -236,6 +230,12 @@ NSString *const mk_ga_contentKey = @"mk_ga_contentKey";
         NSString *deviceType = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)];
         resultDic = @{@"deviceType":deviceType};
         operationID = mk_ga_taskReadDeviceTypeOperation;
+    }else if ([cmd isEqualToString:@"19"]) {
+        //读取时区
+        resultDic = @{
+            @"timeZone":[MKBLEBaseSDKAdopter signedHexTurnString:content],
+        };
+        operationID = mk_ga_taskReadTimeZoneOperation;
     }else if ([cmd isEqualToString:@"1a"]) {
         //读取区域参数
         NSString *domain = [MKBLEBaseSDKAdopter getDecimalStringWithHex:content range:NSMakeRange(0, content.length)];
@@ -290,12 +290,9 @@ NSString *const mk_ga_contentKey = @"mk_ga_contentKey";
     }else if ([cmd isEqualToString:@"0e"]) {
         //配置NTP服务器域名
         operationID = mk_ga_taskConfigNTPServerHostOperation;
-    }else if ([cmd isEqualToString:@"0f"]) {
+    }else if ([cmd isEqualToString:@"19"]) {
         //配置时区
         operationID = mk_ga_taskConfigTimeZoneOperation;
-    }else if ([cmd isEqualToString:@"19"]) {
-        //配置MK107P时区
-        operationID = mk_ga_taskConfigPTimeZoneOperation;
     }else if ([cmd isEqualToString:@"1a"]) {
         //配置MK107D Pro的区域参数
         operationID = mk_ga_taskConfigChannelOperation;

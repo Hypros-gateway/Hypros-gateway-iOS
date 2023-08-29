@@ -229,7 +229,7 @@ mk_ga_centralManagerScanDelegate>
     NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
     self.asciiText = localPassword;
     MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr(localPassword)
-                                                                          placeholder:@"TThe password should be 8-16 characters."
+                                                                          placeholder:@"The password should be 8-16 characters."
                                                                         textFieldType:mk_normal
                                                                             maxLength:16
                                                                               handler:^(NSString * _Nonnull text) {

@@ -120,12 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)ga_readNTPServerHostWithSucBlock:(void (^)(id returnData))sucBlock
                              failedBlock:(void (^)(NSError *error))failedBlock;
 
-/// Read the current time zone to the device.
-/// @param sucBlock Success callback
-/// @param failedBlock Failure callback
-+ (void)ga_readTimeZoneWithSucBlock:(void (^)(id returnData))sucBlock
-                        failedBlock:(void (^)(NSError *error))failedBlock;
-
 /// Read the mac address of the device.
 /// @param sucBlock Success callback
 /// @param failedBlock Failure callback
@@ -137,6 +131,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param failedBlock Failure callback
 + (void)ga_readDeviceTypeWithSucBlock:(void (^)(id returnData))sucBlock
                           failedBlock:(void (^)(NSError *error))failedBlock;
+
+/// Read the current time zone to the device.
+/// @param sucBlock Success callback
+/// @param failedBlock Failure callback
++ (void)ga_readTimeZoneWithSucBlock:(void (^)(id returnData))sucBlock
+                        failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// Read 2.4G&5G channel by selecting your domain, channels will be matched according to the domain.
 /*

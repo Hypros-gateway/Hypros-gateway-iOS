@@ -22,9 +22,9 @@ typedef NS_ENUM(NSInteger, mk_ga_taskOperationID) {
     mk_ga_taskReadSubscibeTopicOperation,       //读取Subscribe topic
     mk_ga_taskReadPublishTopicOperation,        //读取Publish topic
     mk_ga_taskReadNTPServerHostOperation,       //读取NTP服务器域名
-    mk_ga_taskReadTimeZoneOperation,            //读取时区
     mk_ga_taskReadDeviceMacAddressOperation,    //读取Mca地址
     mk_ga_taskReadDeviceTypeOperation,          //读取设备类型
+    mk_ga_taskReadTimeZoneOperation,            //读取时区
     mk_ga_taskReadChannelOperation,              //读取区域参数
     mk_ga_taskReadServerUserNameOperation,      //读取服务器登录用户名
     mk_ga_taskReadServerPasswordOperation,      //读取服务器登录密码
@@ -48,7 +48,6 @@ typedef NS_ENUM(NSInteger, mk_ga_taskOperationID) {
     mk_ga_taskConfigPublishTopicOperation,          //配置Publish topic
     mk_ga_taskConfigNTPServerHostOperation,         //配置NTP服务器域名
     mk_ga_taskConfigTimeZoneOperation,              //配置时区
-    mk_ga_taskConfigPTimeZoneOperation,             //配置MK107P的时区
     mk_ga_taskConfigChannelOperation,               //配置MK107D Pro的区域参数
     
     mk_ga_taskConfigServerUserNameOperation,        //配置服务器的登录用户名
