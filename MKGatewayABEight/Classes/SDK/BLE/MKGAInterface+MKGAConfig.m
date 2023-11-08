@@ -242,10 +242,6 @@ static const NSInteger packDataMaxLen = 150;
 + (void)ga_configTimeZone:(NSInteger)timeZone
                  sucBlock:(void (^)(void))sucBlock
               failedBlock:(void (^)(NSError *error))failedBlock {
-    if (timeZone < -12 || timeZone > 12) {
-        [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
-        return;
-    }
     if (timeZone < -24 || timeZone > 28) {
         [MKBLEBaseSDKAdopter operationParamsErrorBlock:failedBlock];
         return;
